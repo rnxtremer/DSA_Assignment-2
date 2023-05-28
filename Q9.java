@@ -1,61 +1,69 @@
-import java.util.*;
-class Student
-{
-    int rollNumber;
-    String name;
-    String course;    
-    void input_Student(int r,String n,String c) 
-    {
-        rollNumber=r;
-        name=n;
-        course=c;
+/*Write a Java program to declare a Class named as Student which contains roll number,
+name and course as instance variables and input_Student () and display_Student () as
+instance methods. A derived class Exam is created from the class Student. The derived
+class contains mark1, mark2, mark3 as instance variables representing the marks of three
+subjects and input_Marks () and display_Result () as instance methods. Create an array of
+objects of the Exam class and display the result of 5 students.*/
+
+import java.util.Scanner;
+
+class Student {
+    protected int rollNumber;
+    protected String name;
+    protected String course;
+    
+    public void input_Student() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter roll number: ");
+        rollNumber = input.nextInt();
+        input.nextLine(); 
+        System.out.print("Enter name: ");
+        name = input.nextLine();
+        System.out.print("Enter course: ");
+        course = input.nextLine();
     }
     
-    void display_Student() {
-        System.out.print(rollNumber+"\t"+name+"\t"+course+"\t");
-    }
-}
-class Exam extends Student 
-{
-    int mark1;
-    int mark2;
-    int mark3;
-    
-    void input_Marks(int m1,int m2,int m3) 
-    {
-        mark1 = m1;
-        mark2 = m2;
-        mark3 = m3;
-    }
-    
-    void display_Result() 
-    {
-     System.out.println(mark1+"\t"+mark2+"\t"+mark3);
+    public void display_Student() {
+        System.out.println("Roll number: " + rollNumber);
+        System.out.println("Name: " + name);
+        System.out.println("Course: " + course);
     }
 }
 
-public class Q9 
-{
-    public static void main(String[] args) 
-    {
+class Exam extends Student {
+    private int mark1;
+    private int mark2;
+    private int mark3;
+    
+    public void input_Marks() {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter marks for subject 1: ");
+        mark1 = in.nextInt();
+        System.out.print("Enter marks for subject 2: ");
+        mark2 = in.nextInt();
+        System.out.print("Enter marks for subject 3: ");
+        mark3 = in.nextInt();
+    }
+    
+    public void display_Result() {
+        int totalMarks = mark1 + mark2 + mark3;
+        System.out.println("Total marks: " + totalMarks);
+    }
+}
+
+public class Q9 {
+    public static void main(String[] args) {
         Exam[] exams = new Exam[5];
         
-        for (int i = 0; i < exams.length; i++) 
+        for (int i = 0; i < exams.length; i++) {
             exams[i] = new Exam();
-            System.out.println("Rollno\tName\tBranch\tMark1\tMark2\tMark3");
-            exams[0].input_Student(30,"Ansuman","Btech");
-            exams[0].input_Marks(70,80,50);
-            exams[1].input_Student(31,"Chiku","Btech");
-            exams[1].input_Marks(50,43,55);
-            exams[2].input_Student(32,"PS","Btech");
-            exams[2].input_Marks(78,62,58);
-            exams[3].input_Student(33,"AP","Btech");
-            exams[3].input_Marks(90,69,59);
-            exams[4].input_Student(34,"AS","Btech");
-            exams[4].input_Marks(35,45,55);     
-        for (int i = 0; i < exams.length; i++) 
-        {
-            
+            System.out.println("Enter details for student " + (i + 1) + ":");
+            exams[i].input_Student();
+            exams[i].input_Marks();
+        }
+        
+        for (int i = 0; i < exams.length; i++) {
+            System.out.println("Result for student " + (i + 1) + ":");
             exams[i].display_Student();
             exams[i].display_Result();
         }
