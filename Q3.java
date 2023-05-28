@@ -1,48 +1,54 @@
-/*Question:
-Define a class called Student with instance variables Roll, Name, DSA_Mark.Also, the class consists of instance methods getdata(),
-showdata() to provide input to the instance variable and to display the value of instance variable.
-Write a program to create the details of 5 students. Display the information of the students who has secured the highest DSA_Mark. */
-class Student 
+/*Define a class called Student with instance variables Roll, Name, DSA_Mark. Also, the class 
+consists of instance methods getdata( ), showdata( ) to provide input to the instance variable 
+and to display the value of instance variable. Write a program to create the details of 5 students. 
+Display the information of the students who has secured the highest DSA_Mark.*/
+
+import java.util.Scanner;
+class Student{
+	int roll;
+	double DSA_Marks;
+	String Name;
+void getData()
 {
-    int Roll;
-    String Name;
-    int DSA_Mark;    
-    void getdata(int r,String s,int mark) 
-    {
-        this.Roll =r;
-        this.Name =s;
-        this.DSA_Mark =mark;
-    }    
-    public void showdata()
-    {
-        System.out.println( this.Roll+"\t"+ this.Name+"\t"+ this.DSA_Mark);
-    }    
+	Scanner sc= new Scanner(System.in);
+	System.out.println("Enter Name");
+	Name = sc.nextLine();
+	System.out.println("Enter Name");
+	roll = sc.nextInt();
+	System.out.println("Enter Name");
+	DSA_Marks = sc.nextDouble();
+	
 }
-public class Q3
+void showData()
 {
-    public static void main(String[] args) 
-    {
-        Student[] students = new Student[5];
-        double maxMark = -1;
-        int maxIndex = -1;
-        for (int i = 0; i < students.length; i++) 
-            students[i] = new Student();
-        students[0].getdata(30, "Chiku",56);
-        students[1].getdata(31, "Pran",55);
-        students[2].getdata(32, "Ap",58);
-        students[3].getdata(33, "AS",52);
-        students[4].getdata(34, "Khusi",51);
-        for (int i = 0; i < students.length; i++) 
-              if (students[i].DSA_Mark > maxMark) 
-            {
-                maxMark = students[i].DSA_Mark;
-                maxIndex = i;
-            }        
-        System.out.println("\nDetails of all students:");
-        System.out.println("Roll\tName\tDSA Mark");
-        for (int i = 0; i < students.length; i++) {
-            students[i].showdata();
-        }        
-        System.out.printf(students[maxIndex].Name+" having roll no"+students[maxIndex].Roll+" has the highest DSA Mark of "+ maxMark);
-    }
+	System.out.println("Roll = "+roll+" Name : "+Name+" DSA Marks : "+DSA_Marks);
 }
+}
+public class Q3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Student st[]=new Student[5];
+		for(int i=0;i<5;i++)
+		{
+			st[i]=new Student();
+		}
+		for(int i =0;i<5;i++)
+		{
+			System.out.println("Enter the details of Students "+(i+1));
+			st[i].showData();
+		}
+		double max=st[0].DSA_Marks;
+		for(int i=1;i<5;i++)
+				{
+			if(max<st[i].DSA_Marks)
+				max=st[i].DSA_Marks;
+				}
+		for(int i=1;i<5;i++)
+		{
+			if(st[i].DSA_Marks==max)
+				System.out.println("Details of the Student having highest marks: ");
+			st[i].showData();
+		}
+	 }
+  }
