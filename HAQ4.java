@@ -65,7 +65,7 @@ class CircleType extends PointType
         return 2*Math.PI*this.radius;
     }
 }
-public class HW4 
+public class HAQ4 
 {
     public static void main(String[] args) 
     {
