@@ -36,7 +36,7 @@ public class Q3 {
 		for(int i =0;i<5;i++)
 		{
 			System.out.println("Enter the details of Students "+(i+1));
-			st[i].showData();
+			st[i].getData();
 		}
 		double max=st[0].DSA_Marks;
 		for(int i=1;i<5;i++)
