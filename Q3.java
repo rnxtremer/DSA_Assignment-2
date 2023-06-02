@@ -13,9 +13,9 @@ void getData()
 	Scanner sc= new Scanner(System.in);
 	System.out.println("Enter Name");
 	Name = sc.nextLine();
-	System.out.println("Enter Name");
+	System.out.println("Enter Roll");
 	roll = sc.nextInt();
-	System.out.println("Enter Name");
+	System.out.println("Enter DSA_Marks");
 	DSA_Marks = sc.nextDouble();
 	
 }
