@@ -23,21 +23,19 @@ void showData()
 {
 	System.out.println("Roll = "+roll+" Name : "+Name+" DSA Marks : "+DSA_Marks);
 }
-}
+ }
 public class Q3 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Student st[]=new Student[5];
-		for(int i=0;i<5;i++)
-		{
-			st[i]=new Student();
-		}
-		for(int i =0;i<5;i++)
-		{
-			System.out.println("Enter the details of Students "+(i+1));
-			st[i].getData();
-		}
+	        Student[] st = new Student[5];
+
+	        // Get input for 5 students
+	        for (int i = 0; i < 5; i++) {
+	            System.out.println("Enter details for student " + (i + 1));
+	            st[i] = new Student();
+	            st[i].getData();
+	        }
+
 		double max=st[0].DSA_Marks;
 		for(int i=1;i<5;i++)
 				{
@@ -51,4 +49,4 @@ public class Q3 {
 			st[i].showData();
 		}
 	 }
-  }
+}
