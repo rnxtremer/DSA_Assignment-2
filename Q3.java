@@ -3,6 +3,11 @@ consists of instance methods getdata( ), showdata( ) to provide input to the ins
 and to display the value of instance variable. Write a program to create the details of 5 students. 
 Display the information of the students who has secured the highest DSA_Mark.*/
 
+/*Define a class called Student with instance variables Roll, Name, DSA_Mark. Also, the class 
+consists of instance methods getdata( ), showdata( ) to provide input to the instance variable 
+and to display the value of instance variable. Write a program to create the details of 5 students. 
+Display the information of the students who has secured the highest DSA_Mark.*/
+
 import java.util.Scanner;
 class Student{
 	int roll;
@@ -37,12 +42,12 @@ public class Q3 {
 	        }
 
 		double max=st[0].DSA_Marks;
-		for(int i=1;i<5;i++)
+		for(int i=0;i<5;i++)
 				{
 			if(max<st[i].DSA_Marks)
 				max=st[i].DSA_Marks;
 				}
-		for(int i=1;i<5;i++)
+		for(int i=0;i<5;i++)
 		{
 			if(st[i].DSA_Marks==max)
 				System.out.println("Details of the Student having highest marks: ");
@@ -50,3 +55,4 @@ public class Q3 {
 		}
 	 }
 }
+
