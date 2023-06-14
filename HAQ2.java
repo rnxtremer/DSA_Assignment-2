@@ -3,47 +3,54 @@ initialize the instance variables of the class. Another instance method display 
 information. A person purchase 5 different books. Display the book details which has the maximum 
 price. */
 
-class Book 
-{
+
+import java.util.Scanner;
+
+class Book {
     String BName;
-    int BEdition;
+    String BEdition;
     double BPrice;
-    Book(String BName, int BEdition, double BPrice)
-    {
-        this.BName = BName;
-        this.BEdition = BEdition;
-        this.BPrice = BPrice;
+
+    Book(String name, String edition, double price) {
+        BName = name;
+        BEdition = edition;
+        BPrice = price;
     }
-    void display() 
-    {
-        System.out.println( this.BName+"\t" + this.BEdition+"\t"+ this.BPrice);
-    }   
-    public double getPrice() 
-    {
-        return this.BPrice;
-    } 
-    void displaymax(){
-        System.out.println(this.BName+" Book having price "+this.BPrice+"has maximum price.");
+
+    void display() {
+        System.out.println("Book Name: " + BName);
+        System.out.println("Edition: " + BEdition);
+        System.out.println("Price: " + BPrice);
     }
 }
-class BookDemo 
-{
-    public static void main(String[] args) 
-    {
+
+public class HAQ2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         Book[] books = new Book[5];
-        books[0] = new Book("JAVA DSA   ", 5, 499.99);
-        books[1] = new Book("Calculus II", 2, 799.99);
-        books[2] = new Book("Economics  ", 8, 649.99);
-        books[3] = new Book("University PHY", 9, 699.99);
-        books[4] = new Book("Graph Theory ", 5, 459.49);
-        System.out.println("Book Name\tEdition\tBook price");
-        Book max = books[0];
-        for (int i = 0; i < books.length; i++) 
-        {
-            books[i].display();
-            if (books[i].getPrice()> max.getPrice())
-                max = books[i];
+
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Enter Book Name:");
+            String name = scanner.nextLine();
+
+            System.out.println("Enter Edition:");
+            String edition = scanner.nextLine();
+
+            System.out.println("Enter Price:");
+            double price = scanner.nextDouble();
+            scanner.nextLine();
+
+            books[i] = new Book(name, edition, price);
         }
-        max.displaymax();
+
+        Book maxPriceBook = books[0];
+        for (int i = 1; i < 5; i++) {
+            if (books[i].BPrice > maxPriceBook.BPrice) {
+                maxPriceBook = books[i];
+            }
+        }
+
+        System.out.println("Book with maximum price:");
+        maxPriceBook.display();
     }
 }
