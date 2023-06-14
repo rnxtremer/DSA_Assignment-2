@@ -7,8 +7,8 @@ objects and demonstrates the addition of two distances. */
 import java.util.Scanner;
 
 class Distance {
-    private int meters;
-    private int centimeters;
+     int meters;
+     int centimeters;
     
     public Distance(int meters, int centimeters) {
         this.meters = meters;
