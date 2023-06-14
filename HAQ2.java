@@ -44,7 +44,7 @@ public class HAQ2 {
         }
 
         Book maxPriceBook = books[0];
-        for (int i = 1; i < 5; i++) {
+        for (int i = 0; i < 5; i++) {
             if (books[i].BPrice > maxPriceBook.BPrice) {
                 maxPriceBook = books[i];
             }
