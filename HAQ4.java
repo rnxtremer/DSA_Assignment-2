@@ -10,79 +10,76 @@ derive the class CircleType from the class PointType. You should be able to perf
 usual operations on a circle, such as setting the radius, printing the radius, calculating and
 printing the area and circumference, and carrying out the usual operations on the center.*/
 
-class PointType 
-{
-    double x;
-    double y;
-    PointType(double x, double y)
-    {
+
+import java.util.Scanner;
+
+class PointType {
+    private double x;
+    private double y;
+    
+    public PointType(double x, double y) {
         this.x = x;
         this.y = y;
     }
-    void setCoordinates(double x, double y)
-    {
+    
+    public void setCoordinates(double x, double y) {
         this.x = x;
         this.y = y;
     }
-    void printCoordinates() 
-    {
-        System.out.println("(" + this.x + ", " + this.y + ")");
+    
+    public void printCoordinates() {
+        System.out.println("Coordinates: (" + x + ", " + y + ")");
     }
-    double X() 
-    {
-        return this.x;
+    
+    public double getX() {
+        return x;
     }
-    double Y()
-    {
-        return this.y;
+    
+    public double getY() {
+        return y;
     }
 }
-class CircleType extends PointType 
-{
-    double radius;
-    public CircleType(double x, double y, double radius) 
-    {
+
+class CircleType extends PointType {
+    private double radius;
+    
+    public CircleType(double x, double y, double radius) {
         super(x, y);
         this.radius = radius;
     }
-    void setRadius(double radius) 
-    {
+    
+    public void setRadius(double radius) {
         this.radius = radius;
     }
-    void printRadius() 
-    {
-        System.out.println("Radius is: " + this.radius);
+    
+    public void printRadius() {
+        System.out.println("Radius: " + radius);
     }
-    void printCenter(){
-        System.out.println("Center is : "+this.x+","+this.y);
+    
+    public double calculateArea() {
+        return Math.PI * radius * radius;
     }
-    double getArea() 
-    {
-        return Math.PI * this.radius * this.radius;
-    }
-    double getCircumference() 
-    {
-        return 2*Math.PI*this.radius;
+    
+    public double calculateCircumference() {
+        return 2 * Math.PI * radius;
     }
 }
-public class HAQ4 
-{
-    public static void main(String[] args) 
-    {
-        PointType point = new PointType(1, 2);
-        System.out.print("Point: ");
-        point.printCoordinates();
-        point.setCoordinates(8, 9);
-        System.out.print("Now the point is : ");
-        System.out.println("("+point.X() + "," + point.Y()+")");
-        CircleType circle = new CircleType(1, 2, 5);
+
+public class HAQ4 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Enter the coordinates of the center point (x y):");
+        double x = scanner.nextDouble();
+        double y = scanner.nextDouble();
+        
+        System.out.println("Enter the radius of the circle:");
+        double radius = scanner.nextDouble();
+        CircleType circle = new CircleType(x, y, radius);
+        
+        circle.printCoordinates();
         circle.printRadius();
-        circle.setRadius(10);
-        System.out.print("Updated ");
-        circle.printRadius();
-        System.out.print("Circle area is : ");
-        System.out.println(circle.getArea());
-        System.out.print("Circle Circumference is : ");
-        System.out.println(circle.getCircumference());
+        System.out.println("Area: " + circle.calculateArea());
+        System.out.println("Circumference: " + circle.calculateCircumference());
     }
 }
