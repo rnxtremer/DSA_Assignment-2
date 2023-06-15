@@ -41,7 +41,7 @@ class PointType {
 }
 
 class CircleType extends PointType {
-    private double radius;
+    double radius;
     
     public CircleType(double x, double y, double radius) {
         super(x, y);
