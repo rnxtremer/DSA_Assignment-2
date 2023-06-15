@@ -14,8 +14,8 @@ printing the area and circumference, and carrying out the usual operations on th
 import java.util.Scanner;
 
 class PointType {
-    private double x;
-    private double y;
+     double x;
+     double y;
     
     public PointType(double x, double y) {
         this.x = x;
